@@ -64,13 +64,13 @@ def build_data(json_file):
 class TestLoginAPI:
     uuid = None
 
-    def setup(self):
+    def setup_method(self):
         self.login_api = LoginAPI()
 
         response = self.login_api.verify_code()
         TestLoginAPI.uuid = response.json().get("uuid")
 
-    def teardown(self):
+    def teardown_method(self):
         pass
 
     # @pytest.mark.parametrize("username, password, status, message, code",test_data)
